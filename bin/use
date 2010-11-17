@@ -18,7 +18,7 @@ USAGE: For example: `basename $0` [component] version\
 
 echo
 
-DEFAULT_TOOL_DIR=/usr/local/devtools
+DEFAULT_TOOL_DIR=/devtools
 
 if [ $# -eq 2 ]; then
     COMPONENT=$1
