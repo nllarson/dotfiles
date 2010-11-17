@@ -27,31 +27,25 @@ fi
 
 umask 022
 
-JAVA_HOME=/usr/local/devtools/java/current
-export JAVA_HOME
+#JAVA_HOME=/devtools/java/current
+#export JAVA_HOME
 
-GRAILS_HOME=/usr/local/devtools/grails/current
+GRAILS_HOME=/devtools/grails/current
 export GRAILS_HOME
 
-IDEA_HOME=/usr/local/devtools/intellij/current
-export IDEA_HOME
-
-JDK_HOME=$JAVA_HOME
-IDEA_JDK=$JAVA_HOME
-export JDK_HOME IDEA_JDK
-
-ANDROID_HOME=/usr/local/devtools/android/android-sdk-linux_86/tools
+ANDROID_HOME=/devtools/android/android-sdk-linux_86/tools
 export ANDROID_HOME
 
-GROOVY_HOME=/usr/local/devtools/groovy/current
+GROOVY_HOME=/devtools/groovy/current
 export GROOVY_HOME
 
-GRADLE_HOME=/usr/local/devtools/gradle/current
+GRADLE_HOME=/devtools/gradle/current
 export GRADLE_HOME
 
-LIQUIBASE_HOME=/usr/local/devtools/liquibase/current
+LIQUIBASE_HOME=/devtools/liquibase/current
 export LIQUIBASE_HOME
 
-PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
+#PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
+PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
