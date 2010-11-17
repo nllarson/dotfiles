@@ -3,6 +3,7 @@
 !bin/*
 !.bash_profile
 !.bash_aliases
+!.bash_prompt
 !.bashrc
 !.gitignore
 !README.md
