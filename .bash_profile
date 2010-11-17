@@ -25,6 +25,14 @@ if [ "$PS1" ]; then
   fi
 fi
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f  ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
+
 umask 022
 
 #JAVA_HOME=/devtools/java/current
@@ -49,4 +57,3 @@ export LIQUIBASE_HOME
 PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
-. ~/.bash_prompt
