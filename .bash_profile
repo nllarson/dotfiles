@@ -32,8 +32,8 @@ fi
 
 umask 022
 
-#JAVA_HOME=/devtools/java/current
-#export JAVA_HOME
+JAVA_HOME=/devtools/java/current
+export JAVA_HOME
 
 GRAILS_HOME=/devtools/grails/current
 export GRAILS_HOME
@@ -50,7 +50,6 @@ export GRADLE_HOME
 LIQUIBASE_HOME=/devtools/liquibase/current
 export LIQUIBASE_HOME
 
-#PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
-PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
+PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
