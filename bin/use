@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# sets a symlink by convention...
+#
+# For example,
+#   in a directory names /usr/local/devtools/grails with
+#     /usr/local/devtools/grails/grails-1.1.2 and
+#     /usr/local/devtools/grails/grails-1.2,
+#   executing `use 1.2`
+#   will create a symlink /usr/local/devtools/grails/current -> /usr/local/devtools/grails/grails-1.2
+#
+# Set your path to include DEFAULT_TOOL_DIR/grails/current/bin.  Got it?
+#
+USAGE="\
+USAGE: `basename $0`: must specify version (and optional component name.)\n\
+USAGE: For example: `basename $0` [component] version\
+"
+
+echo
+
+DEFAULT_TOOL_DIR=/usr/local/devtools
+
+if [ $# -eq 2 ]; then
+    COMPONENT=$1
+    VERSION=$2
+    cd $DEFAULT_TOOL_DIR/$COMPONENT
+elif [ $# -eq 1 ]; then
+    COMPONENT=`basename $PWD`
+    VERSION=$1
+else
+    echo $USAGE
+    exit -1
+fi
+
+USE=$COMPONENT-$VERSION
+
+if [ -d $USE ]; then
+    if [ -h current ]; then
+        CURRENT=`ls -l current | awk '{ print $10 }'`
+        if [ "$CURRENT" = "$USE" ]; then
+            echo "keeping $CURRENT"
+        else
+            echo "switching from $CURRENT to $USE"
+            rm current
+            ln -s $USE current
+            ls -l current | awk '{ printf "%s %s %s", $9, $10, $11 }'
+        echo
+        fi
+    else
+        echo "using $USE"
+        ln -s $USE current
+        ls -l current | awk '{ printf "%s %s %s", $9, $10, $11 }'
+        echo
+    fi
+else
+    echo "ERROR: missing directory for $@"
+    if [ -h current ]; then
+        CURRENT=`ls -l current | awk '{ print $11 }'`
+        echo "WARNING: keeping $CURRENT"
+    else
+        echo "WARNING: current not set."
+    fi
+    echo $USAGE
+    exit -1
+fi

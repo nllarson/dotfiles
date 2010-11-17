@@ -1,0 +1,12 @@
+#!/bin/sh
+GIT_BRANCH=`git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+GRAILS_SCRIPT=$GRAILS_HOME/bin/grails
+
+if [ $GIT_BRANCH ]; then
+	GRAILS_WORK_DIR=`echo ~`/.grails_$GIT_BRANCH``
+	echo "** grails working directory: $GRAILS_WORK_DIR"
+	$GRAILS_SCRIPT -Dgrails.work.dir=$GRAILS_WORK_DIR $@
+else
+	echo "** default grails working directory"
+	$GRAILS_SCRIPT $@
+fi
