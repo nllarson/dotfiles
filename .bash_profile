@@ -49,3 +49,4 @@ export LIQUIBASE_HOME
 PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
+. ~/.bash_prompt

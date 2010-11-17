@@ -1,58 +1,34 @@
-prompt_username_color() {
-    if [ "$(id -u)" == "0" ]; then
-        echo -e "\033[0m"
-    else
-        echo -e "\033[0m"
-    fi
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 2`
+c_sgr0=`tput sgr0`
+
+parse_git_branch ()
+{
+  if git rev-parse --git-dir >/dev/null 2>&1
+  then
+          gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+  else
+          return 0
+  fi
+  echo -e $gitver
 }
 
-prompt_hostname_color() {
-    if [[ ${SSH_CLIENT} ]] || [[ ${SSH2_CLIENT} ]]; then 
-        echo -e "\033[1;35m"
-    else
-        echo -e "\033[0m"
-    fi
-}
-
-prompt_git_branch_color() {
-    if type -p __git_ps1; then
-        branch=$(__git_ps1 '%s')
-        if [ -n "$branch" ]; then
-            status=$(git status 2> /dev/null)
-
-            if $(echo $status | grep 'added to commit' &> /dev/null); then
-            # If we have modified files but no index (blue)
-                echo -e "\033[1;34m"
-            else
-                if $(echo $status | grep 'to be committed' &> /dev/null); then
-                # If we have files in index (red)
-                    echo -e "\033[1;31m"
+branch_color ()
+{
+        if git rev-parse --git-dir >/dev/null 2>&1
+        then
+                color=""
+                if git diff --quiet 2>/dev/null >&2
+                then
+                        color="${c_green}"
                 else
-                # If we are completely clean (green)
-                    echo -e "\033[1;32m"
+                        color=${c_red}
                 fi
-            fi
+        else
+                return 0
         fi
-    fi
+        echo -ne $color
 }
 
-prompt_git_branch() {
-    if type -p __git_ps1; then
-        branch=$(__git_ps1 '%s')
-        if [ -n "$branch" ]; then
-            echo -e "$branch"
-        fi
-    fi
-}
-
-prompt_git_label() {
-    if type -p __git_ps1; then
-        branch=$(__git_ps1 '%s')
-        if [ -n "$branch" ]; then
-            echo -e " git:"
-        fi
-    fi
-}
-
-PS1="\[\$(prompt_username_color)\]\u\[\033[0m\]@\[\$(prompt_hostname_color)\]\h\[\033[0m\]:\w\$(prompt_git_label)\[\$(prompt_git_branch_color)\]\$(prompt_git_branch)\[\033[0m\]\$\[\033[0m\] "
-
+PS1='[\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]] \u@\[${c_red}\]\w\[${c_sgr0}\]: '
