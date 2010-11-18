@@ -30,6 +30,10 @@ if [ -f  ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
 
+if [ -f ~/.envionment_settings ]; then
+    . ~/.envionment_settings
+fi
+
 umask 022
 
 JAVA_HOME=/devtools/java/current
