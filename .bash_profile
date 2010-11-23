@@ -54,6 +54,9 @@ export GRADLE_HOME
 LIQUIBASE_HOME=/devtools/liquibase/current
 export LIQUIBASE_HOME
 
-PATH=$HOME/bin:$HOME/bin/grails-git:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
+RUBY_HOME=/devtools/ruby/current
+export RUBY_HOME
+
+PATH=$HOME/bin:$HOME/bin/grails-git:$RUBY_HOME/bin:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
