@@ -1,0 +1,12 @@
+#!/bin/bash
+while :
+do
+  echo "Checking for iOS 5: `date`"
+  result=`curl -s -L http://phobos.apple.com/version | grep Restore | grep iPhone | grep 5.0`
+  if [ -z "$result" ]; then
+    echo "Nothing yet..."
+  else
+    say "I O S 5 IS NOW AVAILABLE. GO GET YOUR DOWNLOAD ON, KID"
+  fi
+  sleep 30
+done

@@ -57,6 +57,9 @@ export LIQUIBASE_HOME
 RUBY_HOME=/devtools/ruby/current
 export RUBY_HOME
 
-PATH=$HOME/bin:$HOME/bin/grails-git:$RUBY_HOME/bin:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
+MYSQL_HOME=/usr/local/mysql
+export MYSQL_HOME
+
+PATH=$HOME/bin:$HOME/bin/grails-git:$RUBY_HOME/bin:$MYSQL_HOME/bin:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
 export PATH
 
