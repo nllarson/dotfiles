@@ -36,30 +36,5 @@ fi
 
 umask 022
 
-JAVA_HOME=/devtools/java/current
-export JAVA_HOME
-
-GRAILS_HOME=/devtools/grails/current
-export GRAILS_HOME
-
-ANDROID_HOME=/devtools/android/android-sdk-linux_86/tools
-export ANDROID_HOME
-
-GROOVY_HOME=/devtools/groovy/current
-export GROOVY_HOME
-
-GRADLE_HOME=/devtools/gradle/current
-export GRADLE_HOME
-
-LIQUIBASE_HOME=/devtools/liquibase/current
-export LIQUIBASE_HOME
-
-RUBY_HOME=/devtools/ruby/current
-export RUBY_HOME
-
-MYSQL_HOME=/usr/local/mysql
-export MYSQL_HOME
-
-PATH=$HOME/bin:$HOME/bin/grails-git:$RUBY_HOME/bin:$MYSQL_HOME/bin:$PATH:$JAVA_HOME/bin:$GRAILS_HOME/bin:$IDEA_HOME/bin:$ANDROID_HOME:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$LIQUIBASE_HOME
-export PATH
-
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/nllarson/.gvm/bin/gvm-init.sh" ]] && source "/Users/nllarson/.gvm/bin/gvm-init.sh"
